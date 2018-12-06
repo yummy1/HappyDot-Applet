@@ -1,0 +1,38 @@
+{
+  "pages":[
+    "pages/home/home/home",
+    "pages/shangcheng/home/shangchengHome",
+    "pages/shangcheng/shangjia/shangjia"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#F7A429",
+    "navigationBarTitleText": "幸福原点",
+    "navigationBarTextStyle":"light"
+  },
+  "tabBar": {
+    "selectedColor": "#FCA328",
+    "list": [
+      {
+        "pagePath": "pages/home/home/home",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/home/home/home",
+        "text": "我想"
+      },
+      {
+        "pagePath": "pages/home/home/home",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/home/home/home",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  }
+}

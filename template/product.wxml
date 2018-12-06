@@ -1,0 +1,7 @@
+<template name="productList">
+  <view class='product_one'>
+    <image class='product_icon' src='{{"http://58.87.87.71/"+pic}}'></image>
+    <text class='product_tittle'>{{name}}</text>
+    <text class='product_price'>{{'￥' + saleprice}}</text>
+  </view>
+</template>  

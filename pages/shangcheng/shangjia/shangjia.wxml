@@ -1,0 +1,19 @@
+<view class='shangjiaContainer'>
+  <view class='top'>
+    <view class='fenlei' wx:for="{{[1,2,3,4,5,6]}}">
+      <image src='http://img.zcool.cn/community/014565554b3814000001bf7232251d.jpg@1280w_1l_2o_100sh.png'></image>
+      <text>超市便利</text>
+    </view>
+  </view>
+  <view class='bottom_header'><text> -- 全部分类 -- </text></view>
+  <view class='fenlei2'>
+    <view class='fenlei2_title'><text>休闲</text></view>
+    <block wx:for="{{[1,2,3,4,5,6]}}">
+      <view class='fenlei_list'>
+        <view class='fenlei_one'>
+          <text>商城</text>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

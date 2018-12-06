@@ -1,0 +1,30 @@
+<import src="/template/product"/>
+<view class='container'>
+  <view class='top'>
+    <view class='fenlei' wx:for="{{fenlei}}" wx:key="index">
+      <block wx:if="{{index != 7}}">
+        <image src='{{"http://58.87.87.71/"+item.pic}}'></image>
+        <text>{{item.name}}</text>
+      </block>
+      <block wx:else>
+        <image src='/images/allFenlei.jpg'></image>
+        <text>全部分类</text>
+      </block>
+    </view>
+  </view>
+  <view class='center'  catchtap='gotoShangjia'>
+    <view>
+      <image src='/images/shangjia.png'></image>
+    <text class='center_shangjia'>周边商家</text>
+    </view>
+    <text class='center_fujin'>附近好物在线买 > </text>
+  </view>
+  <view class='bottom_header'><text> -- 商城秒杀 -- </text></view>
+    <view class='product'>
+      <block wx:for="{{dataArray}}" wx:key="index"wx:for-item="products">
+        <block wx:for="{{products}}" wx:key="idx"wx:for-item="item">
+          <template is="productList" data="{{...item}}"></template>
+        </block>
+      </block>
+    </view>
+</view>

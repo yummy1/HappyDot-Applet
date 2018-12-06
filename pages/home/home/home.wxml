@@ -1,0 +1,40 @@
+<import src="/template/product"/>
+<view class='homeContainer'>
+  <swiper class='ad' indicator-dots="true" indicator-color="#C9DC9C" indicator-active-color="#9BCB40">
+    <swiper-item  wx:for="{{[1,2,3]}}" wx:key="index">
+      <image src='http://img.zcool.cn/community/014565554b3814000001bf7232251d.jpg@1280w_1l_2o_100sh.png'></image>
+    </swiper-item>
+  </swiper>
+  <view class='nav'>
+    <text class='hujiu'>一键呼救</text>
+  </view>
+  <view class='module'>
+    <view class='module_top'>
+      <view catchtap='gotoShangcheng' class='module_shangcheng'>线上商城</view>
+    <view class='module_jifen'>会员积分</view>
+    </view>
+    <view class='module_bootom'>
+      <view class='module_tuan'>明星团</view>
+    <view class='module_xuexike'>幸福学习课</view>
+    </view>
+  </view>
+  <view class='message_list'>
+    <view class='message_header'>
+      <text class='msgHeader_tittle'>通知中心</text>
+      <view class='msgHeader_line'></view>
+      <text class='msgHeader_more'>更多 〉</text>
+    </view>
+    <view class='message' wx:for="{{[1,2,3]}}" wx:key="index">
+      <text class='message_content'>哈哈活动部的不稳定和不和我温度和对外读物和端午不未读</text>
+      <text class='message_date'>03/06</text>
+    </view>
+  </view>
+  <view class='product_header'><text>猜你喜欢</text></view>
+  <view class='product'>
+    <block wx:for="{{dataArray}}" wx:key="index"wx:for-item="products">
+      <block wx:for="{{products}}" wx:key="idx"wx:for-item="item">
+        <template is="productList" data="{{...item}}"></template>
+      </block>
+    </block>
+  </view>
+</view>
