@@ -7,49 +7,53 @@ Page({
    * 页面的初始数据
    */
   data: {
-    fenlei:[],
-    dataArray: []
+    dataArray: [],
+    ccode : "",
+    orderby:1,
+    priceText: "价格",
+    priceIcon: "/images/shangjialiebiao_03.png"
   },
-  gotoShangjia:function(){
-    wx.navigateTo({
-      url: '../shangjia/shangjia',
+  renqiAction:function(){
+    this.setData({
+      orderby:1,
+      priceText: "价格", 
+      priceIcon: "/images/shangjialiebiao_03.png"
     })
+    this.requestInitProduct();
   },
-  gotoAllFenlei:function(e){
-    console.log(e);
-    if(e.currentTarget.dataset.index == 7){
-      wx.navigateTo({
-        url: '../productAllFenlei/productAllFenlei',
+  xiaoliangAction:function(){
+    this.setData({
+      orderby: 2,
+      priceText: "价格",
+      priceIcon: "/images/shangjialiebiao_03.png"
+    })
+    this.requestInitProduct();
+  },
+  jiageAction:function(){
+    console.log(this.data.orderby);
+    if(this.data.orderby == 3){
+      console.log("价格升");
+      this.setData({
+        orderby: 4,
+        priceText: "价格升",
+        priceIcon: "/images/shangjialiebiao_07.png"
       })
     }else{
-      wx.navigateTo({
-        url: '../fenleiProduct/fenleiProduct?ccode=' + e.currentTarget.dataset.ccode + "&name=" + e.currentTarget.dataset.name,
+      console.log("价格降");
+      this.setData({
+        orderby: 3,
+        priceText: "价格降",
+        priceIcon: "/images/shangjialiebiao_05.png"
       })
     }
-  },
-  requestFenleiData:function(){
-    var that = this;
-    let dataStr = { "command": "getGoodsCatogoryList", "tel": "15737954647", "tp": 1};
-    console.log('url:' + appData.globalData.urlStr + "?data=" + JSON.stringify(dataStr));
-    wx.request({
-      url: appData.globalData.urlStr,
-      data: {
-        data: JSON.stringify(dataStr)
-      },
-      success(res) {
-        console.log(res.data.data)
-        var clist = res.data.data.clist
-        clist.splice(8, clist.length-8)
-        that.setData({
-          fenlei: clist
-        })
-      }
-    })
+    this.requestInitProduct();
   },
   requestInitProduct: function () {
     var that = this;
     var currentPage = 0;
-    let dataStr = { "command": "geGoodsList", "tel": "15737954647", "orderby": 1, "type": 0, offset: currentPage + 1, pagesize: 16 };
+    var orderby = that.data.orderby;
+    var ccode = that.data.ccode;
+    let dataStr = { "command": "geGoodsList", "tel": "15737954647", "ccode": ccode, "orderby": orderby, "type": 0, offset: currentPage + 1, pagesize: 16 };
     console.log('url:' + appData.globalData.urlStr + "?data=" + JSON.stringify(dataStr));
     that.setData({
       dataArray: []
@@ -104,7 +108,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.requestFenleiData();
+    console.log(options);
+    this.setData({
+      ccode:options.ccode
+    })
+    wx.setNavigationBarTitle({
+      title: options.name,
+    })
     this.requestInitProduct();
   },
 
@@ -140,14 +150,14 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.requestInitProduct();
+    
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    this.requestMoreProduct();
+    
   },
 
   /**

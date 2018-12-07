@@ -45,7 +45,7 @@ Page({
     let dataStr = { "command": "geGoodsList", "tel": "15737954647", "orderby": 1, "type": 0, offset: currentPage + 1, pagesize: 16 };
     console.log('url:' + appData.globalData.urlStr + "?data=" + JSON.stringify(dataStr));
     that.setData({
-      products:[]
+      dataArray:[]
     })
     var tips = "加载第" + (currentPage + 1) + "页";
     console.log("load page " + (currentPage + 1));
@@ -76,7 +76,7 @@ Page({
     let dataStr = { "command": "geGoodsList", "tel": "15737954647", "orderby": 1, "type": 0, offset: currentPage + 1, pagesize: 16 };
     console.log('url:' + appData.globalData.urlStr + "?data=" + JSON.stringify(dataStr));
     that.setData({
-      products: []
+      dataArray: []
     })
     wx.request({
       url: appData.globalData.urlStr,

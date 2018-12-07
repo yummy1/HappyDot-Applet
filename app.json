@@ -2,7 +2,9 @@
   "pages":[
     "pages/home/home/home",
     "pages/shangcheng/home/shangchengHome",
-    "pages/shangcheng/shangjia/shangjia"
+    "pages/shangcheng/shangjia/shangjia",
+    "pages/shangcheng/productAllFenlei/productAllFenlei",
+    "pages/shangcheng/fenleiProduct/fenleiProduct"
   ],
   "window":{
     "backgroundTextStyle":"light",

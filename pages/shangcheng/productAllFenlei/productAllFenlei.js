@@ -1,30 +1,31 @@
-let appData = getApp();
 
+let appData = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    upData:[],
-    lowData:[]
+    fenlei:[]
+  },
+  gotoFenlei:function(e){
+    wx.navigateTo({
+      url: '../fenleiProduct/fenleiProduct?ccode=' + e.currentTarget.dataset.ccode + "&name=" + e.currentTarget.dataset.name,
+    })
   },
   requestData:function(){
     var that = this;
-    let data = { "command": "getShopCatogoryList", "tel": "15737954647", "tp": 1 };
-    console.log('url:' + appData.globalData.urlStr + "?data=" + JSON.stringify(data));
+    let dataStr = { "command": "getGoodsCatogoryList", "tel": "15737954647", "tp": 1 };
+    console.log('url:' + appData.globalData.urlStr + "?data=" + JSON.stringify(dataStr));
     wx.request({
       url: appData.globalData.urlStr,
       data: {
-        data: data
+        data: JSON.stringify(dataStr)
       },
       success(res) {
         console.log(res.data.data)
-        var upperpart = res.data.data.upperpart
-        upperpart.splice(6, upperpart.length - 6)
         that.setData({
-          upData: upperpart,
-          lowData: res.data.data.lowerpart
+          fenlei: res.data.data.clist
         })
       }
     })

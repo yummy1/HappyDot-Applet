@@ -1,19 +1,29 @@
 <view class='shangjiaContainer'>
   <view class='top'>
-    <view class='fenlei' wx:for="{{[1,2,3,4,5,6]}}">
-      <image src='http://img.zcool.cn/community/014565554b3814000001bf7232251d.jpg@1280w_1l_2o_100sh.png'></image>
-      <text>超市便利</text>
+    <view class='fenlei' wx:for="{{upData}}" wx:key="key">
+      <block wx:if="{{index != 5}}">
+        <image src='{{"http://58.87.87.71/"+item.pic}}'></image>
+        <text>{{item.name}}</text>
+      </block>
+      <block wx:else>
+        <image src='/images/allFenlei.jpg'></image>
+        <text>全部分类</text>
+      </block>
     </view>
   </view>
   <view class='bottom_header'><text> -- 全部分类 -- </text></view>
-  <view class='fenlei2'>
-    <view class='fenlei2_title'><text>休闲</text></view>
-    <block wx:for="{{[1,2,3,4,5,6]}}">
-      <view class='fenlei_list'>
-        <view class='fenlei_one'>
-          <text>商城</text>
-        </view>
+  <block wx:for="{{lowData}}" wx:key="key" wx:for-item="data">
+    <view class='fenlei2'>
+      <view class='fenlei2_title'><text>{{data.name}}</text></view>
+      <view class='fenlei2_list'>
+        <block wx:for="{{data.twopart}}"  wx:key="id" wx-item="item">
+          <view class='fenlei2_one'>
+            <image src='{{"http://58.87.87.71/"+item.pic}}'></image>
+            <view class='fenlei2_name'><text>{{item.name}}</text></view>
+          </view>
+        </block>
       </view>
-    </block>
-  </view>
+    </view>
+  </block>
+  
 </view>

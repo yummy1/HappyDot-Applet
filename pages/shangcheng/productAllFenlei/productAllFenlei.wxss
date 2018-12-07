@@ -1,0 +1,27 @@
+.allFenleiContainer{
+  background-color: #F1F1F1;
+  display: flex;
+  flex-direction: column;
+}
+.fenlei{
+  float: left;
+  width: 224rpx;
+  height: 290rpx;
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  background-color: white;
+}
+.fenlei image{
+  width: 196rpx;
+  height: 196rpx;
+  background-color: lightgray;
+  margin: 14rpx 14rpx;
+}
+.fenlei text{
+  color: #666;
+  font-size: 32rpx;
+  text-align: center;
+}

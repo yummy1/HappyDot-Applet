@@ -1,0 +1,8 @@
+<view class='allFenleiContainer'>
+  <view>
+    <view class='fenlei' wx:for="{{fenlei}}" wx:key="index" catchtap='gotoFenlei' data-ccode="{{item.code}}" data-name="{{item.name}}">
+      <image src='{{"http://58.87.87.71/"+item.pic}}'></image>
+      <text>{{item.name}}</text>
+    </view>
+  </view>
+</view>

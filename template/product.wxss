@@ -6,6 +6,8 @@
   width: 348rpx;
   height: 550rpx;
   position: relative;
+  border-radius: 4rpx;
+  box-shadow: 0rpx 2rpx 3rpx 3rpx #ddd; 
 }
 .product_icon{
   width: 348rpx;

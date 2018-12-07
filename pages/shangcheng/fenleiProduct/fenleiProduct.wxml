@@ -1,0 +1,18 @@
+<import src="/template/product"/>
+<view class='fenleiContainer'>
+  <view class='conditions'>
+    <text class='{{orderby == 1?"yellow":"gray"}}' catchtap='renqiAction'>人气</text>
+    <text class='{{orderby == 2?"yellow":"gray"}}' catchtap='xiaoliangAction'>销量</text>
+    <view class='price'>
+      <text class='{{(orderby == 3 || orderby == 4)?"yellow":"gray"}}' catchtap='jiageAction'>{{priceText}}</text>
+      <image src='{{priceIcon}}'></image>
+    </view>
+  </view>
+  <view class='product'>
+      <block wx:for="{{dataArray}}" wx:key="index"wx:for-item="products">
+        <block wx:for="{{products}}" wx:key="idx" wx:for-item="item">
+          <template is="productList" data="{{...item}}"></template>
+        </block>
+      </block>
+    </view>
+</view>
