@@ -10,11 +10,19 @@ Page({
     fenlei:[],
     dataArray: []
   },
+  // 跳转商家
   gotoShangjia:function(){
     wx.navigateTo({
       url: '../shangjia/shangjia',
     })
   },
+  // 跳转商品详情
+  gotoProductDetail: function (e) {
+    wx.navigateTo({
+      url: '../productDetail/productDetail?gsid=' + e.currentTarget.dataset.gsid,
+    })
+  },
+  // 获取顶部全部分类
   gotoAllFenlei:function(e){
     console.log(e);
     if(e.currentTarget.dataset.index == 7){
@@ -27,11 +35,7 @@ Page({
       })
     }
   },
-  gotoProductDetail: function (e) {
-    wx.navigateTo({
-      url: '../productDetail/productDetail?gsid=' + e.currentTarget.dataset.gsid,
-    })
-  },
+  // 请求底部分类数据
   requestFenleiData:function(){
     var that = this;
     let dataStr = { "command": "getGoodsCatogoryList", "tel": "15737954647", "tp": 1};
@@ -51,6 +55,7 @@ Page({
       }
     })
   },
+  // 加载第一页数据
   requestInitProduct: function () {
     var that = this;
     var currentPage = 0;
@@ -79,6 +84,7 @@ Page({
       }
     })
   },
+  // 加载更多数据
   requestMoreProduct: function () {
     var that = this;
     var currentPage = that.data.offset; // 获取当前页码

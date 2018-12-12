@@ -44,6 +44,7 @@ Page({
       }
     })
   },
+  // 加载首页数据
   requestInitProduct: function (){
     var that = this;
     var currentPage = 0;
@@ -72,6 +73,7 @@ Page({
       }
     })
   },
+  //上拉加载更多
   requestMoreProduct: function () {
     var that = this;
     var currentPage = that.data.offset; // 获取当前页码

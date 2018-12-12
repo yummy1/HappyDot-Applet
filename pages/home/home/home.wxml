@@ -1,13 +1,16 @@
 <import src="/template/product"/>
 <view class='homeContainer'>
+<!-- 轮播图 -->
   <swiper class='ad' indicator-dots="true" indicator-color="#C9DC9C" indicator-active-color="#9BCB40" autoplay="true">
     <swiper-item  wx:for="{{[1,2,3]}}" wx:key="index">
       <image src='http://img.zcool.cn/community/014565554b3814000001bf7232251d.jpg@1280w_1l_2o_100sh.png'></image>
     </swiper-item>
   </swiper>
+  <!-- 顶部导航 -->
   <view class='nav'>
     <text class='hujiu'>一键呼救</text>
   </view>
+  <!-- 模块 -->
   <view class='module'>
     <view class='module_top'>
       <view catchtap='gotoShangcheng' class='module_shangcheng'>线上商城</view>
@@ -18,6 +21,7 @@
     <view class='module_xuexike'>幸福学习课</view>
     </view>
   </view>
+  <!-- 消息 -->
   <view class='message_list'>
     <view class='message_header'>
       <text class='msgHeader_tittle'>通知中心</text>
@@ -29,6 +33,7 @@
       <text class='message_date'>03/06</text>
     </view>
   </view>
+  <!-- 商品 -->
   <view class='product_header'><text>猜你喜欢</text></view>
   <view class='product'>
     <block wx:for="{{dataArray}}" wx:key="index"wx:for-item="products">

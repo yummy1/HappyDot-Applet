@@ -17,6 +17,7 @@ Page({
     selectedSize:"",
     num:1
   },
+  // 请求详情
   requestProductDetail: function () {
     var that = this;
     wx.showLoading({
@@ -39,12 +40,14 @@ Page({
       }
     })
   },
+  // 底部详情选择
   lookDetails:function(e){
     console.log(e);
     this.setData({
       index : e.currentTarget.dataset.idx
     })
   },
+  // 点击加入购物车
   AddToCart:function(){
     if (this.data.selectedColor == "" && this.data.productDetail.colors.length > 0){
       wx.showToast({
@@ -76,17 +79,19 @@ Page({
       })
     }
   },
-  
+  // 显示规格选择页面
   showSelectColor:function(){
     this.setData({
       isShowSelected: true
     })
   },
+  //关闭规格选择页面
   closeAction:function(){
     this.setData({
       isShowSelected: false
     })
   },
+  // 选择颜色
   selectColorAction:function(e){
     console.log(e);
     this.setData({
@@ -110,6 +115,7 @@ Page({
       }
     }
   },
+  // 选择尺寸
   selectSizeAction:function(e){
     console.log(e);
     this.setData({
@@ -133,6 +139,7 @@ Page({
       }
     }
   },
+  // 数量减
   jianAction:function(){
     if(this.data.num > 1){
       var num = this.data.num;
@@ -143,6 +150,7 @@ Page({
     }
 
   },
+  // 数量加
   jiaAction:function(){
     var num = this.data.num;
     num += 1;

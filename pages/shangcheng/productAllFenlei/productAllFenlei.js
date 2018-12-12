@@ -8,6 +8,7 @@ Page({
   data: {
     fenlei:[]
   },
+  // 跳转商品列表页
   gotoFenlei:function(e){
     wx.navigateTo({
       url: '../fenleiProduct/fenleiProduct?ccode=' + e.currentTarget.dataset.ccode + "&name=" + e.currentTarget.dataset.name,

@@ -1,5 +1,6 @@
 <import src="/template/product"/>
 <view class='container'>
+<!-- 顶部分类 -->
   <view class='top'>
     <view class='fenlei' wx:for="{{fenlei}}" wx:key="index" catchtap='gotoAllFenlei' data-index='{{index}}' data-ccode='{{item.code}}' data-name="{{item.name}}">
       <block wx:if="{{index != 7}}">
@@ -12,6 +13,7 @@
       </block>
     </view>
   </view>
+  <!-- 中部商家 -->
   <view class='center'  catchtap='gotoShangjia'>
     <view>
       <image src='/images/shangjia.png'></image>
@@ -19,6 +21,7 @@
     </view>
     <text class='center_fujin'>附近好物在线买 > </text>
   </view>
+  <!-- 底部商品 -->
   <view class='bottom_header'><text> -- 商城秒杀 -- </text></view>
     <view class='product'>
       <block wx:for="{{dataArray}}" wx:key="index"wx:for-item="products">

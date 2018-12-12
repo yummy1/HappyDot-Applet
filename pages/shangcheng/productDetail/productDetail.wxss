@@ -3,6 +3,7 @@
   flex-direction: column;
   position: relative
 }
+/* 顶部基本信息 */
 .info{
   width: 100%;
   display: flex;
@@ -36,6 +37,7 @@
   padding: 4rpx 6rpx;
   border: 2rpx solid #F7A429;
 }
+/* 规格 */
 .guige{
   width: 100%;
   height: 100rpx;
@@ -58,6 +60,7 @@
 .guige_selected{
   margin-left: 20rpx;
 }
+/* 评价 */
 .pingjia{
   width: 100%;
   height: 100rpx;
@@ -87,6 +90,7 @@
 .pingfen{
   margin-left: 20rpx;
 }
+/* 商家 */
 .shangjia{
   width: 100%;
   height: 160rpx;
@@ -113,6 +117,7 @@
   font-weight: 300;
   line-height: 160rpx;
 }
+/* 详情 */
 .details{
   margin-top: 20rpx;
   margin-bottom: 140rpx;
@@ -150,6 +155,7 @@
   width: 100%;
   height: 6rpx;
 }
+/* 底部 */
 .bottom{
   position: fixed;
   bottom: 0;
@@ -203,6 +209,7 @@
   color: white;
   font-size: 34rpx;
 }
+/* 规格选择 */
 .guige_xuanze_show{
   display: block;
   position: absolute;

@@ -13,6 +13,7 @@ Page({
     priceText: "价格",
     priceIcon: "/images/shangjialiebiao_03.png"
   },
+  // 按人气排序
   renqiAction:function(){
     this.setData({
       orderby:1,
@@ -21,6 +22,7 @@ Page({
     })
     this.requestInitProduct();
   },
+  // 按销量排序
   xiaoliangAction:function(){
     this.setData({
       orderby: 2,
@@ -29,6 +31,7 @@ Page({
     })
     this.requestInitProduct();
   },
+  // 按价格排序
   jiageAction:function(){
     console.log(this.data.orderby);
     if(this.data.orderby == 3){
@@ -48,11 +51,13 @@ Page({
     }
     this.requestInitProduct();
   },
+  // 跳转商品详情
   gotoProductDetail: function (e) {
     wx.navigateTo({
       url: '../productDetail/productDetail?gsid=' + e.currentTarget.dataset.gsid,
     })
   },
+  // 请求首页商品
   requestInitProduct: function () {
     var that = this;
     var currentPage = 0;
@@ -83,6 +88,7 @@ Page({
       }
     })
   },
+  // 上拉加载更多
   requestMoreProduct: function () {
     var that = this;
     var currentPage = that.data.offset; // 获取当前页码

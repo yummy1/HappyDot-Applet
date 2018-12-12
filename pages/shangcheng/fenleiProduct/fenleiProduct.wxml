@@ -1,5 +1,6 @@
 <import src="/template/product"/>
 <view class='fenleiContainer'>
+<!-- 商品筛选条件 -->
   <view class='conditions'>
     <text class='{{orderby == 1?"yellow":"gray"}}' catchtap='renqiAction'>人气</text>
     <text class='{{orderby == 2?"yellow":"gray"}}' catchtap='xiaoliangAction'>销量</text>
@@ -8,6 +9,7 @@
       <image src='{{priceIcon}}'></image>
     </view>
   </view>
+  <!-- 商品 -->
   <view class='product'>
       <block wx:for="{{dataArray}}" wx:key="index"wx:for-item="products">
         <block wx:for="{{products}}" wx:key="idx" wx:for-item="item">
