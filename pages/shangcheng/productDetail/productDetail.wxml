@@ -1,0 +1,126 @@
+<view class='detailContainer'>
+  <view class='info'>
+    <swiper class='pic' indicator-dots="true" indicator-color="#FFF" indicator-active-color="#F7A429" autoplay="true">
+      <swiper-item wx:for="{{pics}}" wx:key="index">
+        <image src='{{"http://58.87.87.71/"+item}}'></image>
+      </swiper-item>
+    </swiper>
+    <text class='name'>{{productDetail.name}}</text>
+    <text class='price'>￥{{productDetail.saleprice}}</text>
+    <text class='jifen'>送{{productDetail.saleprice}}购物积分</text>
+  </view>
+  <view class='guige'catchtap='showSelectColor'>
+    <view class='guige_left'>
+      <view class='line'></view>
+      <text>规格</text>
+      <block wx:if="{{selectedModel == null}}">
+        <text class='guige_selected'>请选择</text>
+      </block>
+      <block wx:else>
+        <text class='guige_selected'>已选择{{selectedColor}}{{selectedSize}}</text>
+      </block>
+    </view>
+    <text> 〉</text>
+  </view>
+  <view class='pingjia'>
+    <view class='pingjia_left'>
+      <view class='line'></view>
+      <text>评价</text>
+      <text class='pingfen'>{{productDetail.payscore}}分</text>
+    </view>
+    <view>  
+      <text>{{productDetail.commenttimes}}评论</text>
+      <text> 〉</text>
+    </view>  
+  </view>
+  <view class='shangjia'>
+    <view class='shangjia_left'>
+      <image src='{{"http://58.87.87.71/"+productDetail.shoplogopic}}'></image>
+      <text>{{productDetail.shopname}}</text>
+    </view>
+    <text> 〉</text>
+  </view>
+  <view class='details'>
+    <view class='details_top'>
+      <view class='details_tuwen' catchtap='lookDetails' data-idx='1'>
+        <text class='{{index==1?"yellow":"gray"}}'>图文详情</text>
+        <view class='{{index==1?"BGyellow":"BGwhite"}}'></view>
+      </view>
+      <view class='details_guige' catchtap='lookDetails' data-idx='2'>
+        <text class='{{index==2?"yellow":"gray"}}'>规格参考</text>
+        <view class='{{index==2?"BGyellow":"BGwhite"}}'></view>
+      </view>
+      <view class='details_shouhou' catchtap='lookDetails' data-idx='3'>
+        <text class='{{index==3?"yellow":"gray"}}'>售后服务</text>
+        <view class='{{index==3?"BGyellow":"BGwhite"}}'></view>
+      </view>
+    </view>
+    <!-- <block wx:if="{{index==1}}">
+      <view class='details_tuwenpic'>
+
+      </view>
+    </block> -->
+  </view>
+  <view class='bottom'>
+    <view class='zixun'>
+      <image src='/images/shangpinxinagqingye_39.png'></image>
+      <text>咨询</text>
+    </view>
+    <view class='cart'>
+      <image src='/images/shangpinxinagqingye_41.png'></image>
+      <text>购物车</text>
+    </view>
+    <view class='cartBtn' catchtap='{{selectedModel==null?"showSelectColor":"AddToCart"}}'>
+      <text>加入购物车</text>
+    </view>
+    <view class='buyBtn'>
+      <text>立即购买</text>
+    </view>
+  </view>
+  <view class='{{isShowSelected?"guige_xuanze_show":"guige_xuanze_hidden"}}'>
+    <view class='xuanze_info'>
+      <view class='xuanze_productInfo'>
+        <image src='{{"http://58.87.87.71/"+productDetail.pic}}'></image>
+        <view class='xuanze_infoRight'>
+          <text class='xuanze_name'>{{productDetail.name}}</text>
+          <text class='xuanze_price'>￥{{productDetail.saleprice}}</text>
+          <block wx:if="{{selectedModel == null}}">
+            <text class='xuanze_selected'>请选择</text>
+          </block>
+          <block wx:else>
+            <text class='xuanze_selected'>已选择{{selectedColor}}{{selectedSize}}</text>
+          </block>
+        </view>
+        <view catchtap='closeAction' class='xuanze_close'>关闭</view>
+      </view>
+      <view class='xuanze_color'>
+        <text>颜色分类</text>
+        <view class='xuanze_colors'>
+          <view catchtap='selectColorAction' data-color='{{item}}' class='{{selectedColor==item?"colorItemSelected":"colorItem"}}' wx:for='{{productDetail.colors}}' wx:key="index">{{item}}</view>
+        </view>
+      </view>
+      <view class='xuanze_size'>
+        <text wx:if='{{productDetail.specs.length>0}}'>尺寸分类</text>
+        <view class='xuanze_specs' class='xuanze_specs'>
+          <view catchtap='selectSizeAction' data-size='{{item}}' class='{{selectedSize==item?"specsItemSelected":"colorItem"}}' wx:for='{{productDetail.specs}}' wx:key="index">{{item}}</view>
+        </view>
+      </view>
+      <view class='xuanze_count'>
+        <text>购买数量</text>
+        <view class='xuanze_countRight'>
+          <image catchtap='jianAction' class='jian' src='/images/xuanzeshangpinguige_10.png'></image>
+          <text class='xuanze_countNum'>{{num}}</text>
+          <image catchtap='jiaAction' class='jia' src='/images/xuanzeshangpinguige_12.png'></image>
+        </view>
+      </view>
+    </view>
+    <view class='xuanze_bottom'>
+      <view class='xuanze_cartBtn' catchtap='AddToCart' data-gsid='{{productDetail.gsid}}'>
+        <text>加入购物车</text>
+      </view>
+      <view class='xuanze_buyBtn'>
+        <text>立即购买</text>
+      </view>
+    </view>
+  </view>
+</view>

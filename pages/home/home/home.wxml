@@ -1,6 +1,6 @@
 <import src="/template/product"/>
 <view class='homeContainer'>
-  <swiper class='ad' indicator-dots="true" indicator-color="#C9DC9C" indicator-active-color="#9BCB40">
+  <swiper class='ad' indicator-dots="true" indicator-color="#C9DC9C" indicator-active-color="#9BCB40" autoplay="true">
     <swiper-item  wx:for="{{[1,2,3]}}" wx:key="index">
       <image src='http://img.zcool.cn/community/014565554b3814000001bf7232251d.jpg@1280w_1l_2o_100sh.png'></image>
     </swiper-item>
@@ -33,7 +33,9 @@
   <view class='product'>
     <block wx:for="{{dataArray}}" wx:key="index"wx:for-item="products">
       <block wx:for="{{products}}" wx:key="idx"wx:for-item="item">
-        <template is="productList" data="{{...item}}"></template>
+        <view catchtap='gotoProductDetail' data-gsid='{{item.gsid}}'>
+          <template is="productList" data="{{...item}}"></template>
+        </view>
       </block>
     </block>
   </view>

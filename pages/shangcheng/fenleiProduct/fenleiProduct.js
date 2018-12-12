@@ -48,6 +48,11 @@ Page({
     }
     this.requestInitProduct();
   },
+  gotoProductDetail: function (e) {
+    wx.navigateTo({
+      url: '../productDetail/productDetail?gsid=' + e.currentTarget.dataset.gsid,
+    })
+  },
   requestInitProduct: function () {
     var that = this;
     var currentPage = 0;
@@ -84,11 +89,11 @@ Page({
     currentPage += 1;
     var tips = "加载第" + (currentPage + 1) + "页";
     console.log("load page " + (currentPage + 1));
+    wx.showLoading({
+      title: tips,
+    })
     let dataStr = { "command": "geGoodsList", "tel": "15737954647", "orderby": 1, "type": 0, offset: currentPage + 1, pagesize: 16 };
     console.log('url:' + appData.globalData.urlStr + "?data=" + JSON.stringify(dataStr));
-    that.setData({
-      dataArray: []
-    })
     wx.request({
       url: appData.globalData.urlStr,
       data: {

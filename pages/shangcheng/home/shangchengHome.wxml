@@ -23,7 +23,9 @@
     <view class='product'>
       <block wx:for="{{dataArray}}" wx:key="index"wx:for-item="products">
         <block wx:for="{{products}}" wx:key="idx" wx:for-item="item">
-          <template is="productList" data="{{...item}}"></template>
+          <view catchtap='gotoProductDetail' data-gsid='{{item.gsid}}'>
+            <template is="productList" data="{{...item}}"></template>
+          </view>
         </block>
       </block>
     </view>

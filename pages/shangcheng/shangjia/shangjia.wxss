@@ -62,7 +62,7 @@
 .fenlei2_one{
   width: 220rpx;
   height: 220rpx;
-  background-color: red;
+  background-color: #999;
   float: left;
   margin-left: 22rpx;
   margin-bottom: 20rpx;

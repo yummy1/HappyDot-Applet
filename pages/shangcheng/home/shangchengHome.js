@@ -27,6 +27,11 @@ Page({
       })
     }
   },
+  gotoProductDetail: function (e) {
+    wx.navigateTo({
+      url: '../productDetail/productDetail?gsid=' + e.currentTarget.dataset.gsid,
+    })
+  },
   requestFenleiData:function(){
     var that = this;
     let dataStr = { "command": "getGoodsCatogoryList", "tel": "15737954647", "tp": 1};
@@ -79,12 +84,12 @@ Page({
     var currentPage = that.data.offset; // 获取当前页码
     currentPage += 1;
     var tips = "加载第" + (currentPage + 1) + "页";
+    wx.showLoading({
+      title: tips,
+    })
     console.log("load page " + (currentPage + 1));
     let dataStr = { "command": "geGoodsList", "tel": "15737954647", "orderby": 1, "type": 0, offset: currentPage + 1, pagesize: 16 };
     console.log('url:' + appData.globalData.urlStr + "?data=" + JSON.stringify(dataStr));
-    that.setData({
-      dataArray: []
-    })
     wx.request({
       url: appData.globalData.urlStr,
       data: {

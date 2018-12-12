@@ -4,7 +4,8 @@
     "pages/shangcheng/home/shangchengHome",
     "pages/shangcheng/shangjia/shangjia",
     "pages/shangcheng/productAllFenlei/productAllFenlei",
-    "pages/shangcheng/fenleiProduct/fenleiProduct"
+    "pages/shangcheng/fenleiProduct/fenleiProduct",
+    "pages/shangcheng/productDetail/productDetail"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -17,18 +18,26 @@
     "list": [
       {
         "pagePath": "pages/home/home/home",
+        "iconPath": "images/shouyegray.png",
+        "selectedIconPath": "images/shouyeyellow.png",
         "text": "首页"
       },
       {
         "pagePath": "pages/home/home/home",
+        "iconPath": "images/woxianggray.png",
+        "selectedIconPath": "images/woxiangyellow.png",
         "text": "我想"
       },
       {
         "pagePath": "pages/home/home/home",
+        "iconPath": "images/gouwuchegray.png",
+        "selectedIconPath": "images/gouwucheyellow.png",
         "text": "购物车"
       },
       {
         "pagePath": "pages/home/home/home",
+        "iconPath": "images/gerengray.png",
+        "selectedIconPath": "images/gerenyellow.png",
         "text": "个人中心"
       }
     ]
