@@ -26,6 +26,8 @@ Page({
   onLoad: function (options) {
     this.requestHome();
     this.requestInitProduct();
+    //请求个人信息
+    this.requestPersonalInformation();
   },
   requestHome: function () {
     var that = this;
@@ -41,6 +43,21 @@ Page({
         // that.setData({
         //   products: res.data.data.glist
         // })
+      }
+    })
+  },
+  requestPersonalInformation: function () {
+    var that = this;
+    let dataStr = { "command": "getCorpUserDetail", "tel": "15737954647"};
+    console.log('url:' + appData.globalData.urlStr + "?data=" + JSON.stringify(dataStr));
+    wx.request({
+      url: appData.globalData.urlStr,
+      data: {
+        data: JSON.stringify(dataStr)
+      },
+      success(res) {
+        console.log(res.data)
+        appData.globalData.personalInformation = res.data.data
       }
     })
   },

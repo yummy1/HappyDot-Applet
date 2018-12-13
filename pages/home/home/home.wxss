@@ -55,6 +55,7 @@
   flex-direction: column;
   border-radius: 16rpx;
   overflow: hidden;
+  box-shadow: 0 3rpx 5rpx 5rpx #ccc;
 }
 .module_top{
   display: flex;

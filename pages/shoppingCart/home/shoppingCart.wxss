@@ -1,0 +1,124 @@
+.cartContainer{
+  display: flex;
+  flex-direction: column;
+}
+.shop_product{
+  margin-top: 20rpx;
+}
+.shop_product_last{
+  margin-top: 20rpx;
+  margin-bottom: 100rpx;
+}
+/* 店铺 */
+.dianpu{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  background-color: white;
+  font-size: 32rpx;
+  color: #333;
+}
+.dianpu_selected,.dianpu_image{
+  width: 50rpx;
+  height: 50rpx;
+  margin: 20rpx;
+}
+.dianpu_image{
+  margin-left: 0;
+}
+/* 商品 */
+.product{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 240rpx;
+  background-color: #F8F8F8;
+  border-bottom: 1rpx solid #EFEFEF;
+}
+.product_selected{
+  width: 50rpx;
+  height: 50rpx;
+  margin: 95rpx 20rpx;
+}
+.product_image{
+  width: 200rpx;
+  height: 200rpx;
+  margin: 20rpx;
+}
+.product_info{
+  width: 380rpx;
+  font-size: 32rpx;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  margin: 20rpx;
+}
+.product_name{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.product_selectedInfo{
+  font-size: 28rpx;
+  color: #999;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+.product_buyInfo{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.product_price{
+  color: #E6475E;
+}
+/* 底部 */
+.bottom{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-top: 1rpx solid #ddd;
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  font-size: 32rpx;
+}
+.bottom_left{
+  display: flex;
+  flex-direction: row;
+}
+.bottom_image{
+  width: 50rpx;
+  height: 50rpx;
+  margin: 25rpx;
+}
+.hejiText{
+  margin: 0 0 0 20rpx;
+}
+.hejiPrice{
+  color: #E6475E;
+}
+.bottom_right{
+  display: flex;
+  flex-direction: row;
+}
+.yunfei{
+  color: #666;
+  font-size: 28rpx;
+  margin-right: 8rpx;
+}
+.jiesuan{
+  width: 220rpx;
+  height: 100rpx;
+  color: white;
+  background-color: #E6475E;
+  font-size: 36rpx;
+  text-align: center;
+}

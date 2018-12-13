@@ -39,6 +39,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    urlStr: 'http://58.87.87.71:8089/HAPPY/interface/httpservices.do'
+    urlStr: 'http://58.87.87.71:8089/HAPPY/interface/httpservices.do',
+    personalInformation: null
   }
 })

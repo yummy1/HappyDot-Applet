@@ -1,0 +1,36 @@
+<view class='cartContainer'>
+  <view class='{{index == shopList.length-1?"shop_product_last":"shop_product"}}' wx:for="{{shopList}}" wx:for-item="shop" wx:key="index">
+    <view class='dianpu'>
+      <image catchtap='dianpuSelectedAction' data-index="{{index}}" class='dianpu_selected' src='{{shop.selected?"/images/selecte_3.png":"/images/selecte_1.png"}}'></image>
+      <image class='dianpu_image' src='/images/dianpu_1.png'></image>
+      <text>{{shop.shopname}}</text>
+    </view>
+    <view class='product' wx:for="{{shop.goodss}}" wx:for-item="product" wx:for-index="idx" wx:key="idx">
+      <image catchtap='productSelectedAction' data-sid="{{index}}" data-pid="{{idx}}" class='product_selected' src='{{product.selected?"/images/selecte_3.png":"/images/selecte_1.png"}}'></image>
+      <image class='product_image' src='{{"http://58.87.87.71/"+product.pic}}'></image>
+      <view class='product_info'>
+        <text class='product_name'>{{product.goodsname}}</text>
+        <view class='product_selectedInfo'>
+          <text>颜色分类:{{product.cname}};</text>
+          <text>尺码:{{product.sname}}</text>
+        </view>
+        <view class='product_buyInfo'>
+          <text class='product_price'>￥{{product.price}}</text>
+          <text>X{{product.num}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='bottom'>
+    <view class='bottom_left'>
+      <image catchtap='AllSelectedAction' class='bottom_image' src='{{isAllSelected?"/images/selecte_3.png":"/images/selecte_1.png"}}'></image>
+      <text>全选</text>
+      <text class='hejiText'>合计:</text>
+      <text class='hejiPrice'>￥{{heji}}</text>
+    </view>
+    <view class='bottom_right'>
+      <text class='yunfei'>不含运费</text>
+      <view class='jiesuan'>去结算</view>
+    </view>
+  </view>
+</view>
