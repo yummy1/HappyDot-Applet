@@ -2,7 +2,8 @@
   "pages":[
     "pages/home/home/home",
     "pages/shangcheng/home/shangchengHome",
-    "pages/shangcheng/shangjia/shangjia",
+    "pages/shangcheng/shangjia/home/shangjia",
+    "pages/shangcheng/shangjia/list/shangjiaList",
     "pages/shangcheng/productAllFenlei/productAllFenlei",
     "pages/shangcheng/fenleiProduct/fenleiProduct",
     "pages/shangcheng/productDetail/productDetail",
@@ -13,7 +14,8 @@
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#F7A429",
     "navigationBarTitleText": "幸福原点",
-    "navigationBarTextStyle":"light"
+    "navigationBarTextStyle":"light",
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "selectedColor": "#FCA328",

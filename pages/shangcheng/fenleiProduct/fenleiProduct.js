@@ -11,7 +11,8 @@ Page({
     ccode : "",
     orderby:1,
     priceText: "价格",
-    priceIcon: "/images/shangjialiebiao_03.png"
+    priceIcon: "/images/shangjialiebiao_03.png",
+    offset: 0
   },
   // 按人气排序
   renqiAction:function(){
@@ -57,48 +58,17 @@ Page({
       url: '../productDetail/productDetail?gsid=' + e.currentTarget.dataset.gsid,
     })
   },
-  // 请求首页商品
-  requestInitProduct: function () {
+  // 请求商品数据
+  requestProduct: function (page) {
     var that = this;
-    var currentPage = 0;
-    var orderby = that.data.orderby;
-    var ccode = that.data.ccode;
-    let dataStr = { "command": "geGoodsList", "tel": "15737954647", "ccode": ccode, "orderby": orderby, "type": 0, offset: currentPage + 1, pagesize: 16 };
-    console.log('url:' + appData.globalData.urlStr + "?data=" + JSON.stringify(dataStr));
-    that.setData({
-      dataArray: []
-    })
-    var tips = "加载第" + (currentPage + 1) + "页";
-    console.log("load page " + (currentPage + 1));
-    wx.showLoading({
-      title: tips,
-    })
-    wx.request({
-      url: appData.globalData.urlStr,
-      data: {
-        data: JSON.stringify(dataStr)
-      },
-      success(res) {
-        wx.hideLoading();
-        console.log(res.data.data)
-        that.setData({
-          ["dataArray[" + currentPage + "]"]: res.data.data.glist,
-          offset: currentPage
-        })
-      }
-    })
-  },
-  // 上拉加载更多
-  requestMoreProduct: function () {
-    var that = this;
-    var currentPage = that.data.offset; // 获取当前页码
+    var currentPage = page; // 获取当前页码
     currentPage += 1;
-    var tips = "加载第" + (currentPage + 1) + "页";
-    console.log("load page " + (currentPage + 1));
+    var tips = "加载第" + currentPage + "页";
+    console.log("load page " + currentPage);
     wx.showLoading({
       title: tips,
     })
-    let dataStr = { "command": "geGoodsList", "tel": "15737954647", "orderby": 1, "type": 0, offset: currentPage + 1, pagesize: 16 };
+    let dataStr = { "command": "geGoodsList", "tel": "15737954647", "orderby": 1, "type": 0, offset: currentPage, pagesize: 16 };
     console.log('url:' + appData.globalData.urlStr + "?data=" + JSON.stringify(dataStr));
     wx.request({
       url: appData.globalData.urlStr,
@@ -107,6 +77,9 @@ Page({
       },
       success(res) {
         wx.hideLoading();
+        if (currentPage == 1) {
+          wx.stopPullDownRefresh()
+        }
         console.log(res.data.data)
         that.setData({
           ["dataArray[" + currentPage + "]"]: res.data.data.glist,
@@ -126,7 +99,7 @@ Page({
     wx.setNavigationBarTitle({
       title: options.name,
     })
-    this.requestInitProduct();
+    this.requestProduct(0);
   },
 
   /**
@@ -161,14 +134,14 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    
+    this.requestProduct(0);
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    
+    this.requestProduct(this.data.offset);
   },
 
   /**

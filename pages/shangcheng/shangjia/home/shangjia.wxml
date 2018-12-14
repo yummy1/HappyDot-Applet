@@ -1,7 +1,7 @@
 <view class='shangjiaContainer'>
 <!-- 顶部一级分类 -->
   <view class='top'>
-    <view class='fenlei' wx:for="{{upData}}" wx:key="key">
+    <view class='fenlei' wx:for="{{upData}}" wx:key="key" catchtap='gotoListAction'>
       <block wx:if="{{index != 5}}">
         <image src='{{"http://58.87.87.71/"+item.pic}}'></image>
         <text>{{item.name}}</text>
