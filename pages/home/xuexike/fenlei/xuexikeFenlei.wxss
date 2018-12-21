@@ -1,0 +1,26 @@
+.xuexikeContainer{
+  display: flex;
+  flex-direction: column;
+  padding-left: 10rpx;
+}
+.fenlei{
+  width: 216rpx;
+  height: 300rpx;
+  margin-top: 16rpx;
+  float: left;
+  margin-left: 21rpx;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+.fenlei image{
+  width: 196rpx;
+  height: 196rpx;
+  margin: 10rpx;
+}
+.fenlei text{
+  text-align: center;
+  color: #333;
+  font-size: 32rpx;
+  margin-top: 20rpx;
+}

@@ -1,45 +1,42 @@
+// pages/home/xuexike/courseDetail/courseDetail.js
 let appData = getApp();
-
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    upData:[],
-    lowData:[]
+    tid:null
   },
-  requestData:function(){
+  requestData: function () {
     var that = this;
-    let data = { "command": "getShopCatogoryList", "tel": "15737954647", "tp": 1 };
-    console.log('url:' + appData.globalData.urlStr + "?data=" + JSON.stringify(data));
+    wx.showLoading({
+      title: "加载中",
+    })
+    let dataStr = { "command": "getTeachersDetail", "tel": "15737954647", "tid": this.data.tid };
+    console.log('url:' + appData.globalData.urlStr + "?data=" + JSON.stringify(dataStr));
     wx.request({
       url: appData.globalData.urlStr,
       data: {
-        data: data
+        data: JSON.stringify(dataStr)
       },
       success(res) {
-        console.log(res.data.data)
-        var upperpart = res.data.data.upperpart
-        upperpart.splice(6, upperpart.length - 6)
+        console.log(res.data);
+        wx.hideLoading();
         that.setData({
-          upData: upperpart,
-          lowData: res.data.data.lowerpart
+          // courseList: res.data.data.tlist
         })
       }
-    })
-  },
-  // 跳转列表页
-  gotoListAction:function(e){
-    console.log(e);
-    wx.navigateTo({
-      url: '../list/shangjiaList?code=' + e.currentTarget.dataset.code + '&id=' + e.currentTarget.dataset.id + '&name=' + e.currentTarget.dataset.name,
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options);
+    this.setData({
+      tid:options.tid
+    })
     this.requestData();
   },
 
@@ -47,48 +44,48 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    
+
   }
 })

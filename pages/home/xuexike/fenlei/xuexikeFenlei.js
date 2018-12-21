@@ -1,30 +1,35 @@
 let appData = getApp();
-
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    upData:[],
-    lowData:[]
+    fenleiArr:[]
   },
-  requestData:function(){
+  gotoCourseList:function(e){
+    wx.navigateTo({
+      url: '../courseList/courseList?code=' + e.currentTarget.dataset.code + "&id=" + e.currentTarget.dataset.id + "&name=" + e.currentTarget.dataset.name,
+    })
+  },
+  // 请求数据
+  requestXuexike: function () {
     var that = this;
-    let data = { "command": "getShopCatogoryList", "tel": "15737954647", "tp": 1 };
-    console.log('url:' + appData.globalData.urlStr + "?data=" + JSON.stringify(data));
+    wx.showLoading({
+      title: "加载中",
+    })
+    let dataStr = { "command": "getGoodsCatogoryList", "tel": "15737954647","tp": 2};
+    console.log('url:' + appData.globalData.urlStr + "?data=" + JSON.stringify(dataStr));
     wx.request({
       url: appData.globalData.urlStr,
       data: {
-        data: data
+        data: JSON.stringify(dataStr)
       },
       success(res) {
-        console.log(res.data.data)
-        var upperpart = res.data.data.upperpart
-        upperpart.splice(6, upperpart.length - 6)
+        console.log(res.data);
+        wx.hideLoading();
         that.setData({
-          upData: upperpart,
-          lowData: res.data.data.lowerpart
+          fenleiArr:res.data.data.clist
         })
       }
     })
@@ -33,7 +38,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.requestData();
+    this.requestXuexike();
   },
 
   /**

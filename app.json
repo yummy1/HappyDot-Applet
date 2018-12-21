@@ -8,7 +8,10 @@
     "pages/shangcheng/fenleiProduct/fenleiProduct",
     "pages/shangcheng/productDetail/productDetail",
     "pages/shoppingCart/home/shoppingCart",
-    "pages/me/home/me"
+    "pages/me/home/me",
+    "pages/home/xuexike/fenlei/xuexikeFenlei",
+    "pages/home/xuexike/courseList/courseList",
+    "pages/home/xuexike/courseDetail/courseDetail"
   ],
   "window":{
     "backgroundTextStyle":"light",

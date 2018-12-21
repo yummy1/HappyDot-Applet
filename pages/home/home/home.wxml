@@ -18,7 +18,7 @@
     </view>
     <view class='module_bootom'>
       <view class='module_tuan'>明星团</view>
-    <view class='module_xuexike'>幸福学习课</view>
+    <view catchtap='gotoXuexikeAction' class='module_xuexike'>幸福学习课</view>
     </view>
   </view>
   <!-- 消息 -->

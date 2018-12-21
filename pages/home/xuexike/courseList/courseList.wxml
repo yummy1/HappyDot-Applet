@@ -1,0 +1,11 @@
+<view class='courseListContainer'>
+  <block wx:for="{{courseList}}">
+    <view class='course' catchtap='gotoCourseDetail' data-tid="{{item.tid}}">
+      <image src='{{"http://58.87.87.71/"+item.pic}}'></image>
+      <view class='courseRight'>
+        <text class='name'>{{item.name}}</text>
+        <text class='score'>{{item.score}}分</text>
+      </view>
+    </view>
+  </block>
+</view>

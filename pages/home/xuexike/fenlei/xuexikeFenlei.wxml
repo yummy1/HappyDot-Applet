@@ -1,0 +1,10 @@
+<view class='xuexikeContainer'>
+  <view>
+    <block wx:for="{{fenleiArr}}">
+      <view class='fenlei' catchtap='gotoCourseList' data-code="{{item.code}}" data-id="{{item.id}}" data-name="{{item.name}}">
+        <image src='{{"http://58.87.87.71/"+item.pic}}'></image>
+        <text>{{item.name}}</text>
+      </view>
+    </block>
+  </view>
+</view>

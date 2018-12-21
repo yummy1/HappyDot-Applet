@@ -20,6 +20,11 @@ Page({
       url: '../../shangcheng/productDetail/productDetail?gsid=' + e.currentTarget.dataset.gsid,
     })
   },
+  gotoXuexikeAction:function(){
+    wx.navigateTo({
+      url: '../xuexike/fenlei/xuexikeFenlei',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
